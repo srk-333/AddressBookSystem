@@ -8,13 +8,16 @@ namespace AddressBookSystem
 {
     public class AddressBookMain
     {
-        List<Contacts> contactList = new List<Contacts>();
+        //Collection Class
+       private List<Contacts> contactList = new List<Contacts>();
+       private Dictionary<string ,Contacts> addressBook = new Dictionary<string ,Contacts>();
 
         //Method to Add Contact
-        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public void AddContactDetails(string adBkName,string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-            this.contactList.Add(contactDetails);
+            Contacts contactDetails = new Contacts(adBkName,firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+            this.contactList.Add(contactDetails);           
+            this.addressBook.Add(adBkName, contactDetails);
         }
 
         //Display Contact
