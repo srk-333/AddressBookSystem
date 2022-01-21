@@ -22,6 +22,7 @@ namespace AddressBookSystem
                 Console.WriteLine("1.Add contacts");
                 Console.WriteLine("2.Display");
                 Console.WriteLine("3.Edit Details");
+                Console.WriteLine("4.Delete Person");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -36,6 +37,11 @@ namespace AddressBookSystem
                         Console.WriteLine("Enter the first name of person");
                         string name = Console.ReadLine();
                         addressMain.EditContact(name);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter the first name of person");
+                        string dName = Console.ReadLine();
+                        addressMain.DeleteContact(dName);
                         break;
                     case 0:
                         CONTINUE = false;
