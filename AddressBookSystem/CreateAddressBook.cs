@@ -32,6 +32,7 @@ namespace AddressBookSystem
                 Console.WriteLine("8.Display person by city or state name");
                 Console.WriteLine("9.View person by city or state");
                 Console.WriteLine("10.Count person by city or state");
+                Console.WriteLine("11.Sort the Address book");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -78,6 +79,13 @@ namespace AddressBookSystem
                         AddressBookMain.CountPerson(cityDictionary);
                         Console.WriteLine("State");
                         AddressBookMain.CountPerson(stateDictionary);
+                        break;
+                    case 11:
+                        Console.WriteLine("AddressBook after sorting");
+                        foreach (var data in addressBook.OrderBy(x => x.Key))
+                        {
+                            Console.WriteLine("{0}", data.Key);
+                        }
                         break;
                     case 0:
                         CONTINUE = false;
