@@ -18,8 +18,20 @@ namespace AddressBookSystem
         //Method to Add Contact
         public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-            this.contactList.Add(contactDetails);
+
+            // finding the data that already has the same first name
+            Contacts contact = this.contactList.Find(x => x.firstName.Equals(firstName));
+            // if same name is not present then add into address book
+            if (contact == null)
+            {
+                Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+                this.contactList.Add(contactDetails);
+            }
+            // print person already exists in the address book
+            else
+            {
+                Console.WriteLine("Person, {0} is already exist in the address book", firstName);
+            }
         }
         //Display Contact
         public void DisplayContact()
