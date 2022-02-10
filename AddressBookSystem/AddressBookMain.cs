@@ -194,5 +194,16 @@ namespace AddressBookSystem
                 Console.WriteLine("-----------------------------");
             }
         }
+        /// <summary>
+        /// count number of person by city or state
+        /// </summary>
+        /// <param name="dictionary"></param>
+        public static void CountPerson(Dictionary<string, List<Contacts>> dictionary)
+        {
+            foreach (var person in dictionary)
+            {
+                Console.WriteLine("Number of person {0}:", person.Value.Count);
+            }
+        }
     }
 }
