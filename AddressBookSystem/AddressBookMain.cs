@@ -9,17 +9,18 @@ namespace AddressBookSystem
     public class AddressBookMain
     {
         //Collection Class
-       private List<Contacts> contactList = new List<Contacts>();
-       private Dictionary<string ,Contacts> addressBook = new Dictionary<string ,Contacts>();
-
-        //Method to Add Contact
-        public void AddContactDetails(string adBkName,string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        private List<Contacts> contactList;
+        //Constructor.
+        public AddressBookMain()
         {
-            Contacts contactDetails = new Contacts(adBkName,firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-            this.contactList.Add(contactDetails);           
-            this.addressBook.Add(adBkName, contactDetails);
+            this.contactList = new List<Contacts>();
         }
-
+        //Method to Add Contact
+        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        {
+            Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+            this.contactList.Add(contactDetails);
+        }
         //Display Contact
         public void DisplayContact()
         {
@@ -34,7 +35,6 @@ namespace AddressBookSystem
             else
                 Console.WriteLine("No Contacts in AddressBook \n");
         }
-
         //Method to Edit Contact 
         public void EditContact(string name)
         {
@@ -92,7 +92,6 @@ namespace AddressBookSystem
                     Console.WriteLine("No Contact With this Name! \n");
             }
         }
-
         //Method to Delete a Person
         public void DeleteContact(string dName)
         {
@@ -105,6 +104,6 @@ namespace AddressBookSystem
                     break;
                 }
             }
-        }       
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace AddressBookSystem
     public class Contacts
     {
         // variables
-        public string adBkName;
         public string firstName;
         public string lastName;
         public string address;
@@ -18,11 +17,9 @@ namespace AddressBookSystem
         public long zipCode;
         public long phoneNumber;
         public string email;
-
         //// constructor that gets user detail and store it in the current object.
-        public Contacts(string adBkName,string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public Contacts(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            this.adBkName = adBkName;
             this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
@@ -32,13 +29,11 @@ namespace AddressBookSystem
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
-
         /// <summary>
         /// To display the contact details.
         /// </summary>
         public void Display()
         {
-            Console.WriteLine("Address Book Name:{0}", this.adBkName);
             Console.WriteLine("First Name:{0}", this.firstName);
             Console.WriteLine("Last Name:{0}", this.lastName);
             Console.WriteLine("Address:{0}", this.address);
