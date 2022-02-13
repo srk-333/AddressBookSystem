@@ -10,6 +10,7 @@ namespace AddressBookSystem
     public class CreateAddressBook
     {
         readonly string filePath = @"E:\RfaBatch\AddressBookSystem\AddressBookSystem\File\PersonData.txt";
+        readonly string csvFilePath = @"E:\RfaBatch\AddressBookSystem\AddressBookSystem\File\AddressBookData.csv";
         static AddressBookMain addressBookMain = new AddressBookMain();
         static Dictionary<string, AddressBookMain> addressBook = new Dictionary<string, AddressBookMain>();
         static Dictionary<string, List<Contacts>> cityDictionary = new Dictionary<string, List<Contacts>>();
@@ -36,6 +37,7 @@ namespace AddressBookSystem
                 Console.WriteLine("11.Sort the Address book");
                 Console.WriteLine("12.Sort by state city or zip");
                 Console.WriteLine("13.Write and Read the Person detail using File IO");
+                Console.WriteLine("14.Write and Read the Person detail using using CSV file");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -100,6 +102,10 @@ namespace AddressBookSystem
                         FileOperations.WriteInTextFile(addressBook, filePath);
                         FileOperations.ReadFromTextFile(filePath);
                         break;
+                    case 14:
+                        CsvHandlercs.WriteIntoCSVFile(addressBook, csvFilePath);
+                        CsvHandlercs.ReadFromCSVFile(csvFilePath);
+                        break;
                     case 0:
                         CONTINUE = false;
                         break;
@@ -163,10 +169,6 @@ namespace AddressBookSystem
             string name = Console.ReadLine();
             AddressBookMain address = addressBook[name];
             return address;
-        }
-        public Dictionary<string, AddressBookMain> getAllAddressBook()
-        {
-            return addressBook;
         }
     }  
 }

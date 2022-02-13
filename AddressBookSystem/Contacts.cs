@@ -29,6 +29,11 @@ namespace AddressBookSystem
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
+        //Override Tostring method
+        public override string ToString()
+        {
+            return $"{firstName}{lastName}{address}{city}{state}{zipCode}{phoneNumber}{email}";              
+        }
         /// <summary>
         /// To display the contact details.
         /// </summary>
