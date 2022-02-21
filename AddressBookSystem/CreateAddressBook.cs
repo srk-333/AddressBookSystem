@@ -16,6 +16,7 @@ namespace AddressBookSystem
         static Dictionary<string, AddressBookMain> addressBook = new Dictionary<string, AddressBookMain>();
         static Dictionary<string, List<Contacts>> cityDictionary = new Dictionary<string, List<Contacts>>();
         static Dictionary<string, List<Contacts>> stateDictionary = new Dictionary<string, List<Contacts>>();
+        AddressBookRepo AddressBookRepo = new AddressBookRepo();
         //created List of class Type.
         public void ReadInput()
         {
@@ -40,6 +41,11 @@ namespace AddressBookSystem
                 Console.WriteLine("13.Write and Read the Person detail using File IO");
                 Console.WriteLine("14.Write and Read the Person detail using CSV file");
                 Console.WriteLine("15.Write and Read the Person detail using JSON file");
+                Console.WriteLine("16.Get All Contacts From Address Book DataBase");
+                Console.WriteLine("17.Update state into Database for anyone contact");
+                Console.WriteLine("18.Alter table with startDate");
+                Console.WriteLine("19.Retrive data by city or state from database");
+                Console.WriteLine("20.Add new Contact to Database");             
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -111,6 +117,21 @@ namespace AddressBookSystem
                     case 15:
                         JsonOperations.WriteIntoJSONFile(addressBook, jsonFilePath);
                         JsonOperations.ReadFromJSONFile(jsonFilePath);
+                        break;
+                    case 16:
+                        AddressBookRepo.GetAllRecords();
+                        break;
+                    case 17:
+                        AddressBookRepo.UpdateContactToDatabase();                      
+                        break;
+                    case 18:
+                        AddressBookRepo.AddDateField();
+                        break;
+                    case 19:
+                        AddressBookRepo.RetrieveByCityOrState();
+                        break;
+                    case 20:
+                        AddressBookRepo.AddNewContact();
                         break;
                     case 0:
                         CONTINUE = false;

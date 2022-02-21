@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressBookMain.cs" />
+    <Compile Include="AddressBookRepo.cs" />
+    <Compile Include="ContactModel.cs" />
     <Compile Include="Contacts.cs" />
     <Compile Include="CreateAddressBook.cs" />
     <Compile Include="CsvHandlercs.cs" />
